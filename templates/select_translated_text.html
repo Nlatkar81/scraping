@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Translated Text</title>
+</head>
+<body>
+    <h1>Select Translated Text</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="selected_text_id">Select Translated Text:</label>
+        <select name="selected_text_id" id="selected_text_id">
+            {% for translated_text in translated_texts %}
+            <option value="{{ translated_text.id }}">{{ translated_text }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Download PDF</button>
+    </form>
+</body>
+</html>
